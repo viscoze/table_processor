@@ -1,0 +1,12 @@
+<students>
+  <student>
+    <surname></surname>
+    <group></group>
+    <exams>
+      <subject>
+        <title></title>
+        <mark></mark>
+      </subject>
+    </exams>
+  </student>
+</students>
