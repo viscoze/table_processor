@@ -1,4 +1,5 @@
 require './controller/XMLParser'
+require './controller/XMLSerializer'
 
 class TableProcessor
 
@@ -6,6 +7,8 @@ class TableProcessor
 
   def initialize(table)
     @table = table
+    read
+    save
   end
 
   def read

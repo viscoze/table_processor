@@ -7,7 +7,7 @@ class XMLParser
 
   def initialize(file_name)
     @table  = []
-    @xmldoc = Document.new File.new file_name
+    set_file(file_name)
     parse
   end
 
@@ -21,6 +21,10 @@ class XMLParser
   end
 
   private
+
+  def set_file(file_name)
+    @xmldoc = Document.new File.new file_name
+  end
 
   def get_child_text(object,category)
     object.elements[category].text
