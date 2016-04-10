@@ -8,7 +8,9 @@ import javax.swing.JMenuBar
 import javax.swing.JMenuItem
 import javax.swing.JMenu
 
-require 'HTMLPanel'
+require './view/HTMLPanel'
+require './view/dialogs/AddDialog'
+require './view/dialogs/SearchDialog'
 
 class UserInterface
   def initialize(table_processor = nil)
@@ -22,7 +24,7 @@ class UserInterface
 
   def initialize_frame_settings
     @frame.set_title "Table by Vlad"
-    @frame.set_size 800,600
+    @frame.set_size 1000,800
     @frame.set_location_relative_to nil
     @frame.set_default_close_operation JFrame::EXIT_ON_CLOSE
     @frame.set_resizable false
@@ -45,12 +47,14 @@ class UserInterface
 
   def initialize_menu_panel
     menuPanel    = JPanel.new
+    addDialog    = AddDialog.new    #@frame, @table_processor
+    searchDialog = SearchDialog.new @frame, @table_processor
 
     createButton = JButton.new "Add New Student"
     searchButton = JButton.new "Search and Delete"
 
-    createButton.add_action_listener { |e| puts "!"}
-    searchButton.add_action_listener { |e| puts "!"}
+    createButton.add_action_listener { |e| puts "!" }
+    searchButton.add_action_listener { |e| searchDialog.get_search_dialog }
 
     menuPanel.add createButton
     menuPanel.add searchButton
@@ -79,14 +83,18 @@ class UserInterface
     file_menu = JMenu.new "File"
 
     open_item = JMenuItem.new "Open"
+    save_item = JMenuItem.new "Save"
     exit_item = JMenuItem.new "Exit"
     default_open_item = JMenuItem.new "Open Default File"
 
-    default_open_item.add_action_listener { |e| table_processor.read }
+    save_item.add_action_listener { |e| @table_processor.save }
+    default_open_item.add_action_listener { |e| @table_processor.read }
     exit_item.add_action_listener { |e| @frame.dispose }
 
     file_menu.add open_item
     file_menu.add default_open_item
+    file_menu.add_separator
+    file_menu.add save_item
     file_menu.add_separator
     file_menu.add exit_item
 
