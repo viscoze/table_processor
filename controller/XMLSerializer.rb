@@ -19,7 +19,6 @@ class XMLSerializer
       students += "\n<student>#{surname}#{group}#{marks}</student>"
     end
     @xml_table = "<students>#{students}\n</students>"
-    puts @xml_table
   end
 
   private
