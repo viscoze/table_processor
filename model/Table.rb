@@ -1,10 +1,13 @@
 class Table
+
+  attr_accessor :table
+
   def initialize
     @table = []
   end
 
   def add_student(surname, group, subjects_and_marks)
-    @table.push {surname: surname, group: group, subjects_and_marks}
+    @table.push({surname: surname, group: group, marks: subjects_and_marks})
   end
 
   def delete_student(surname)
