@@ -7,9 +7,20 @@
 		<title>APiIS</title>
 		<mark>10</mark>
 	</subject>
-
 	<subject>
 		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
 		<mark>10</mark>
 	</subject>
 </exams>
@@ -22,10 +33,21 @@
 		<title>APiIS</title>
 		<mark>10</mark>
 	</subject>
-
 	<subject>
 		<title>MBoIS</title>
-		<mark>9</mark>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
 	</subject>
 </exams>
 </student>
@@ -34,18 +56,180 @@
 	<group>421702</group>
 <exams>
 	<subject>
-		<title>Maths</title>
+		<title>APiIS</title>
 		<mark>10</mark>
 	</subject>
-
 	<subject>
-		<title>English</title>
-		<mark>7</mark>
+		<title>MBoIS</title>
+		<mark>10</mark>
 	</subject>
-
 	<subject>
 		<title>BoDM</title>
-		<mark>8</mark>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Marchenko</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Khilko</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Picoluk</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Shaplyko</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Ivanov</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Zhukov</surname>
+	<group>421702</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
 	</subject>
 </exams>
 </student>

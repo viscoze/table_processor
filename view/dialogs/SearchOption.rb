@@ -34,6 +34,10 @@ class SearchOption
     deleteButton.add_action_listener do |e|
       surname = surnameText.getText
       @table_processor.delete_student surname
+      @table_processor.render
+      resultLabel.setText ""
+      surnameText.setText ""
+      groupText.setText ""
     end
 
     enterPanel.add surnameLabel
@@ -76,6 +80,10 @@ class SearchOption
     deleteButton.add_action_listener do |e|
       surname = surnameText.getText
       @table_processor.delete_student surname
+      @table_processor.render
+      resultLabel.setText ""
+      surnameText.setText ""
+      groupText.setText ""
     end
 
     enterPanel.add surnameLabel
@@ -119,6 +127,10 @@ class SearchOption
     deleteButton.add_action_listener do |e|
       surname = surnameText.getText
       @table_processor.delete_student surname
+      @table_processor.render
+      resultLabel.setText ""
+      surnameText.setText ""
+      groupText.setText ""
     end
 
     enterPanel.add surnameLabel

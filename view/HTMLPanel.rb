@@ -8,20 +8,20 @@ class HTMLPanel < JPanel
 
   def initialize
     super
-    @html_table = JLabel.new
-    self.add @html_table
+    @html_label = JLabel.new
+    self.add @html_label
     set_table
   end
 
-  def set_table
-    @html_table.set_text table
+  def set_table(students_info=nil)
+    @html_label.set_text table(students_info)
   end
 
-  def table
+  def table(students_info)
     "<html>
-    <table border=1 cellpadding=5>
+    <table border=1 cellpadding=10>
         #{header}
-        #{body}
+        #{body(students_info)}
     </table>
     </html>"
   end
@@ -40,7 +40,21 @@ class HTMLPanel < JPanel
      </tr>"
   end
 
-  def body
+  def body(students_info)
+    return if students_info == nil
+    students = ""
+    students_info.each do |student|
+      students += get_student_row student
+    end
+    students
+  end
+
+  def get_student_row(student)
+    marks = ""
+    student[:marks].each do |subject, mark|
+      marks += "<td>#{subject}</td><td>#{mark}</td>"
+    end
+    "<tr><td>#{student[:surname]}</td><td>#{student[:group]}</td>#{marks}</tr>"
   end
 
   def get_number_row(amount_of_exams=5)

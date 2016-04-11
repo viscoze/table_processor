@@ -1,14 +1,27 @@
 require './controller/XMLParser'
 require './controller/XMLSerializer'
+require './controller/HTMLHelper'
 
 class TableProcessor
+  include HTMLHelper
 
   XML_FILE_NAME = "XML_TEST/LIST_OF_STUDENTS.xml"
 
   def initialize(table)
     @table = table
     read
-    save
+  end
+
+  def get_table
+    @table.table
+  end
+
+  def render
+    @panel.set_table get_table
+  end
+
+  def set_table_panel(panel)
+    @panel = panel
   end
 
   def read
@@ -19,8 +32,8 @@ class TableProcessor
     get_xml_from_students XML_FILE_NAME
   end
 
-  def add_student_to_table(surname, group, subjects_and_marks)
-    @table.add_student(surname, group, subjects_and_marks)
+  def add_student(surname, group, subjects_and_marks)
+    @table.add(surname, group, subjects_and_marks)
   end
 
   def search_student(surname)
@@ -33,30 +46,6 @@ class TableProcessor
     @table.table.each do |student|
       @table.delete student if student[:surname] == surname
     end
-  end
-
-  def get_student_string(student)
-    "<html>
-    <table border=1 cellpadding=5>
-        <tr>
-            <td>Surname</td>
-            <td>Group</td>
-        </tr>
-        <tr>
-            <td>#{student[:surname]}</td>
-            <td>#{student[:group]}</td>
-        </tr>
-            #{get_subjects_string student[:marks]}
-    </table>
-    </html>"
-  end
-
-  def get_subjects_string(subjects)
-    subjects_string = ""
-    subjects.each do |subject, mark|
-      subjects_string += "<tr><td>#{subject}</td><td>#{mark}</td></tr>"
-    end
-    subjects_string
   end
 
   private

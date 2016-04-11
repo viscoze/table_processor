@@ -38,6 +38,9 @@ class UserInterface
     pagePanel  = initialize_paginate_panel
     tablePanel = HTMLPanel.new
 
+    @table_processor.set_table_panel tablePanel
+    @table_processor.render
+
     mainPanel.add menuPanel,  BorderLayout::NORTH
     mainPanel.add tablePanel, BorderLayout::CENTER
     mainPanel.add pagePanel,  BorderLayout::SOUTH
@@ -47,13 +50,13 @@ class UserInterface
 
   def initialize_menu_panel
     menuPanel    = JPanel.new
-    addDialog    = AddDialog.new    #@frame, @table_processor
+    addDialog    = AddDialog.new    @frame, @table_processor
     searchDialog = SearchDialog.new @frame, @table_processor
 
     createButton = JButton.new "Add New Student"
     searchButton = JButton.new "Search and Delete"
 
-    createButton.add_action_listener { |e| puts "!" }
+    createButton.add_action_listener { |e| addDialog.get_add_dialog }
     searchButton.add_action_listener { |e| searchDialog.get_search_dialog }
 
     menuPanel.add createButton
@@ -70,8 +73,17 @@ class UserInterface
     nextButton  = JButton.new "Next Page >"
     prevButton  = JButton.new "< Prev Page"
 
+    paginText   = JTextField.new 4
+    enterButton = JButton.new ">"
+
+    enterButton.add_action_listener do |e|
+      paginText.getText
+    end
+
     pagePanel.add firstButton
     pagePanel.add prevButton
+    pagePanel.add paginText
+    pagePanel.add enterButton
     pagePanel.add nextButton
     pagePanel.add lastButton
 
