@@ -6,7 +6,7 @@ class XMLParser
   attr_reader :table
 
   def initialize(file_name)
-    @table  = []
+    @table = []
     set_file(file_name)
     parse
   end

@@ -7,6 +7,8 @@ import javax.swing.JButton
 import javax.swing.JMenuBar
 import javax.swing.JMenuItem
 import javax.swing.JMenu
+import javax.swing.JFileChooser
+import javax.swing.filechooser::FileNameExtensionFilter
 
 require './view/HTMLPanel'
 require './view/dialogs/AddDialog'
@@ -76,10 +78,6 @@ class UserInterface
     paginText   = JTextField.new 4
     enterButton = JButton.new ">"
 
-    enterButton.add_action_listener do |e|
-      paginText.getText
-    end
-
     pagePanel.add firstButton
     pagePanel.add prevButton
     pagePanel.add paginText
@@ -99,9 +97,27 @@ class UserInterface
     exit_item = JMenuItem.new "Exit"
     default_open_item = JMenuItem.new "Open Default File"
 
+    open_item.add_action_listener do |e|
+      choose_file  = JFileChooser.new
+      file_filter = FileNameExtensionFilter.new "xml files", "xml"
+
+      choose_file.addChoosableFileFilter file_filter
+      choosen_xml_file = choose_file.showDialog @frame, "Choose XML file"
+
+      if choosen_xml_file == JFileChooser::APPROVE_OPTION
+        file = choose_file.getSelectedFile
+        @table_processor.read "XML_TEST/"+file.get_name.to_s
+        @table_processor.render
+      end
+
+    end
+
     save_item.add_action_listener { |e| @table_processor.save }
-    default_open_item.add_action_listener { |e| @table_processor.read }
     exit_item.add_action_listener { |e| @frame.dispose }
+    default_open_item.add_action_listener do |e|
+      @table_processor.read
+      @table_processor.render
+    end
 
     file_menu.add open_item
     file_menu.add default_open_item

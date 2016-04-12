@@ -9,7 +9,6 @@ class TableProcessor
 
   def initialize(table)
     @table = table
-    read
   end
 
   def get_table
@@ -24,12 +23,12 @@ class TableProcessor
     @panel = panel
   end
 
-  def read
-    get_students_from_xml XML_FILE_NAME
+  def read(file_name=XML_FILE_NAME)
+    get_students_from_xml file_name
   end
 
-  def save
-    get_xml_from_students XML_FILE_NAME
+  def save(file_name=XML_FILE_NAME)
+    get_xml_from_students file_name
   end
 
   def add_student(surname, group, subjects_and_marks)
