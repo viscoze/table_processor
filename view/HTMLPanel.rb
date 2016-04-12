@@ -17,6 +17,10 @@ class HTMLPanel < JPanel
     @html_label.set_text table(students_info)
   end
 
+  def set_amount_of_rows(amount)
+    @amount_of_rows = amount
+  end
+
   def table(students_info)
     "<html>
     <table border=1 cellpadding=10>
