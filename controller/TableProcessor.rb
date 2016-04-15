@@ -5,22 +5,20 @@ require './controller/HTMLHelper'
 class TableProcessor
   include HTMLHelper
 
+  attr_accessor :panel
+
   XML_FILE_NAME = "XML_TEST/LIST_OF_STUDENTS.xml"
 
   def initialize(table)
     @table = table
   end
 
-  def get_table
-    @table.table
+  def render(start_index=0, amount_of_students=@table.table.size)
+    @panel.set_table @table.table.slice(start_index, amount_of_students)
   end
 
-  def render
-    @panel.set_table get_table
-  end
-
-  def set_table_panel(panel)
-    @panel = panel
+  def get_table_size
+    @table.table.size
   end
 
   def read(file_name=XML_FILE_NAME)
