@@ -26,9 +26,10 @@ class SearchOption
     deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
+      resultLabel.setText ""
       surname = surnameText.getText
       student = @table_processor.search_student surname
-      resultLabel.setText @table_processor.get_student_string student
+      resultLabel.setText @table_processor.get_student_string student if student
     end
 
     deleteButton.add_action_listener do |e|
@@ -72,9 +73,12 @@ class SearchOption
     deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
+      resultLabel.setText ""
       surname = surnameText.getText
-      student = @table_processor.search_student surname
-      resultLabel.setText @table_processor.get_student_string student
+      min     = minText.getText.to_i
+      max     = maxText.getText.to_i
+      student = @table_processor.search_student_by_average_exam_mark surname, min, max
+      resultLabel.setText @table_processor.get_student_string student if student
     end
 
     deleteButton.add_action_listener do |e|
@@ -109,19 +113,23 @@ class SearchOption
 
     surnameLabel = JLabel.new "Surname: "
     markLabel    = JLabel.new "Mark: "
+    subjectLabel = JLabel.new "Subject: "
     resultLabel  = JLabel.new
 
-    surnameText  = JTextField.new 10
-    minText      = JTextField.new 3
-    maxText      = JTextField.new 3
+    surnameText  = JTextField.new 5
+    subjectText  = JTextField.new 5
+    minText      = JTextField.new 2
+    maxText      = JTextField.new 2
 
-    seacrhButton = JButton.new "Search ->"
+    seacrhButton = JButton.new "->"
     deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
+      resultLabel.setText ""
       surname = surnameText.getText
-      student = @table_processor.search_student surname
-      resultLabel.setText @table_processor.get_student_string student
+      subject = subjectText.getText
+      student = @table_processor.search_student_by_subject surname, subject
+      resultLabel.setText @table_processor.get_student_string student if student
     end
 
     deleteButton.add_action_listener do |e|
@@ -135,6 +143,8 @@ class SearchOption
 
     enterPanel.add surnameLabel
     enterPanel.add surnameText
+    enterPanel.add subjectLabel
+    enterPanel.add subjectText
     enterPanel.add markLabel
     enterPanel.add minText
     enterPanel.add maxText

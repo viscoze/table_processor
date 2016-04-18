@@ -51,6 +51,4 @@ class UserInterface
 
     @frame.getContentPane.add mainPanel
   end
-
-
 end

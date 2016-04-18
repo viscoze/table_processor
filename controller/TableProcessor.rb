@@ -1,9 +1,11 @@
 require './controller/XMLParser'
 require './controller/XMLSerializer'
 require './controller/HTMLHelper'
+require './controller/SearchHelper'
 
 class TableProcessor
   include HTMLHelper
+  include SearchHelper
 
   attr_accessor :panel
 
@@ -31,12 +33,6 @@ class TableProcessor
 
   def add_student(surname, group, subjects_and_marks)
     @table.add(surname, group, subjects_and_marks)
-  end
-
-  def search_student(surname)
-    @table.table.each do |student|
-      return student if student[:surname] == surname
-    end
   end
 
   def delete_student(surname)

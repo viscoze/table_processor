@@ -36,7 +36,7 @@ class SearchDialog < JDialog
   def initialize_dialog_interface
     mainPanel  = JPanel.new CardLayout.new
     tabbedPane = JTabbedPane.new
-    tabsNames  = ["Surname and group","Subject mark","Exam mark"]
+    tabsNames  = ["Surname and group","Exam mark","Subject mark"]
 
     search = SearchOption.new(@table_processor).get_all_search_option
 
