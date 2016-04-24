@@ -179,4 +179,184 @@
 	</subject>
 </exams>
 </student>
+<student>
+	<surname>Martinuk</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Semenchuk</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Turing</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Fowler</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Martin</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Clubnik</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>10</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>10</mark>
+	</subject>
+</exams>
+</student>
 </students>

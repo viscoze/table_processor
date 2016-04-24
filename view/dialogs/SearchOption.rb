@@ -28,7 +28,8 @@ class SearchOption
     seacrhButton.add_action_listener do |e|
       resultLabel.setText ""
       surname = surnameText.getText
-      student = @table_processor.search_student surname
+      group   = groupText.getText
+      student = @table_processor.search_student surname, group
       resultLabel.setText @table_processor.get_student_string student if student
     end
 

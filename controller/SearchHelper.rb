@@ -2,7 +2,7 @@ module SearchHelper
 
   def search_student(surname, group)
     @table.table.each do |student|
-      return student if student[:surname] == surname && student[:group] == group
+      return student if student[:surname] == surname and student[:group] == group
     end
   end
 
