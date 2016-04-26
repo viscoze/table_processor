@@ -1,5 +1,4 @@
 module SearchHelper
-
   def search_student(surname, group)
     @table.table.each do |student|
       return student if student[:surname] == surname and student[:group] == group
@@ -27,4 +26,11 @@ module SearchHelper
     (min..max).include? average_mark
   end
 
+  def search_students(surname, group)
+    students = []
+    @table.table.each do |student|
+      students << student if student[:surname] == surname or student[:group] == group
+    end
+    students
+  end
 end

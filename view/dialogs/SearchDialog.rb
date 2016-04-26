@@ -27,7 +27,7 @@ class SearchDialog < JDialog
   private
 
   def initialize_dialog
-    self.set_size 500,400
+    self.set_size 1000,800
     self.set_location_relative_to nil
     self.set_default_close_operation JDialog::DISPOSE_ON_CLOSE
     self.set_resizable false

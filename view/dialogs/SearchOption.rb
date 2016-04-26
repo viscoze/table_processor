@@ -1,5 +1,8 @@
-class SearchOption
+require './view/HTMLPanel'
+require './view/UIHelper'
 
+class SearchOption
+  include UIHelper
   def initialize(table_processor)
     @table_processor = table_processor
   end
@@ -13,11 +16,14 @@ class SearchOption
   def search_first_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    resultPanel  = JPanel.new
+    pagePanel    = initialize_paginate_panel
 
     surnameLabel = JLabel.new "Surname: "
     groupLabel   = JLabel.new "Group: "
-    resultLabel  = JLabel.new
+    tablePanel   = HTMLPanel.new
+
+    @table_processor.search_panel = tablePanel
+    @table_processor.render_search_results
 
     surnameText  = JTextField.new 10
     groupText    = JTextField.new 10
@@ -26,20 +32,11 @@ class SearchOption
     deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
-      resultLabel.setText ""
       surname = surnameText.getText
       group   = groupText.getText
-      student = @table_processor.search_student surname, group
-      resultLabel.setText @table_processor.get_student_string student if student
-    end
 
-    deleteButton.add_action_listener do |e|
-      surname = surnameText.getText
-      @table_processor.delete_student surname
-      @table_processor.render
-      resultLabel.setText ""
-      surnameText.setText ""
-      groupText.setText ""
+      students = @table_processor.search_students surname, group
+      @table_processor.render_search_results students
     end
 
     enterPanel.add surnameLabel
@@ -48,11 +45,9 @@ class SearchOption
     enterPanel.add groupText
     enterPanel.add seacrhButton
 
-    resultPanel.add resultLabel
-
-    mainPanel.add enterPanel,   BorderLayout::NORTH
-    mainPanel.add resultPanel,  BorderLayout::CENTER
-    mainPanel.add deleteButton, BorderLayout::SOUTH
+    mainPanel.add enterPanel, BorderLayout::NORTH
+    mainPanel.add tablePanel, BorderLayout::CENTER
+    mainPanel.add pagePanel,  BorderLayout::SOUTH
 
     mainPanel
   end
