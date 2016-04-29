@@ -57,11 +57,11 @@ class SearchOption
   def search_second_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    resultPanel  = JPanel.new
+    pagePanel    = initialize_paginate_panel
 
     surnameLabel = JLabel.new "Surname: "
     markLabel    = JLabel.new "Mark: "
-    resultLabel  = JLabel.new
+    tablePanel   = HTMLPanel.new
 
     surnameText  = JTextField.new 10
     minText      = JTextField.new 3
@@ -70,12 +70,15 @@ class SearchOption
     seacrhButton = JButton.new "Search ->"
 
     seacrhButton.add_action_listener do |e|
-      resultLabel.setText ""
+      @table_processor.search_panel = tablePanel
       surname = surnameText.getText
       min     = minText.getText.to_i
       max     = maxText.getText.to_i
-      student = @table_processor.search_student_by_average_exam_mark surname, min, max
-      resultLabel.setText @table_processor.get_student_string student if student
+      @table_processor.render do |table|
+        table.select do |student|
+          relevant_student?(student, surname: surname, min: min, max: max)
+        end
+      end
     end
 
     enterPanel.add surnameLabel
@@ -85,10 +88,9 @@ class SearchOption
     enterPanel.add maxText
     enterPanel.add seacrhButton
 
-    resultPanel.add resultLabel
-
-    mainPanel.add enterPanel,   BorderLayout::NORTH
-    mainPanel.add resultPanel,  BorderLayout::CENTER
+    mainPanel.add enterPanel, BorderLayout::NORTH
+    mainPanel.add tablePanel, BorderLayout::CENTER
+    mainPanel.add pagePanel,  BorderLayout::SOUTH
 
     mainPanel
   end
@@ -96,12 +98,12 @@ class SearchOption
   def search_third_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    resultPanel  = JPanel.new
+    pagePanel    = initialize_paginate_panel
 
     surnameLabel = JLabel.new "Surname: "
     markLabel    = JLabel.new "Mark: "
     subjectLabel = JLabel.new "Subject: "
-    resultLabel  = JLabel.new
+    tablePanel   = HTMLPanel.new
 
     surnameText  = JTextField.new 5
     subjectText  = JTextField.new 5
@@ -110,12 +112,18 @@ class SearchOption
 
     seacrhButton = JButton.new "->"
 
-    seacrhButton.add_action_listener do |e|
-      resultLabel.setText ""
+    seacrhButton.add_action_listener do
+      @table_processor.search_panel = tablePanel
       surname = surnameText.getText
       subject = subjectText.getText
-      student = @table_processor.search_student_by_subject surname, subject
-      resultLabel.setText @table_processor.get_student_string student if student
+      min     = minText.getText.to_i
+      max     = maxText.getText.to_i
+      @table_processor.render do |table|
+        table.select do |student|
+          relevant_student?(student, surname: surname, subject: subject,
+                                     min: min, max:max)
+        end
+      end
     end
 
     enterPanel.add surnameLabel
@@ -127,10 +135,9 @@ class SearchOption
     enterPanel.add maxText
     enterPanel.add seacrhButton
 
-    resultPanel.add resultLabel
-
-    mainPanel.add enterPanel,   BorderLayout::NORTH
-    mainPanel.add resultPanel,  BorderLayout::CENTER
+    mainPanel.add enterPanel, BorderLayout::NORTH
+    mainPanel.add tablePanel, BorderLayout::CENTER
+    mainPanel.add pagePanel,  BorderLayout::SOUTH
 
     mainPanel
   end

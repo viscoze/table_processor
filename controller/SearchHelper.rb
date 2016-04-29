@@ -5,9 +5,12 @@ module SearchHelper
       return student[:surname] == search_conditions[:surname] &&
              student[:group] == search_conditions[:group]
     when 3
-      return student[:surname] == surname && average?(student,min,max)
+      return student[:surname] == search_conditions[:surname] &&
+             average?(student,search_conditions[:min],search_conditions[:max])
     when 4
-      return student[:surname] == surname && student[:marks].keys.include?(subject)
+      return student[:surname] == search_conditions[:surname] &&
+             student[:marks].keys.include?(search_conditions[:subject]) &&
+             average?(student,search_conditions[:min],search_conditions[:max])
     end
   end
 
