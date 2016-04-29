@@ -2,7 +2,7 @@ require './view/HTMLPanel'
 require './view/UIHelper'
 require './controller/SearchHelper'
 
-class SearchOption
+class DeleteOption
   include UIHelper
   include SearchHelper
 
@@ -52,7 +52,6 @@ class SearchOption
     mainPanel.add enterPanel, BorderLayout::NORTH
     mainPanel.add tablePanel, BorderLayout::CENTER
     mainPanel.add pagePanel,  BorderLayout::SOUTH
-    mainPanel.add deleteButton, BorderLayout::SOUTH
 
     mainPanel
   end

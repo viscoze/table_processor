@@ -17,11 +17,11 @@ class TableProcessor
   end
 
   def render(start_index=0, amount_of_students=@table.table.size)
+    if block_given?
+      @search_panel.set_table yield @table.table
+      return
+    end
     @panel.set_table @table.table.slice(start_index, amount_of_students)
-  end
-
-  def render_search_results(students_info=nil,start_index=0,amount_of_students.students_info.size)
-    @search_panel.set_table students_info.slice(start_index,amount_of_students)
   end
 
   def get_table_size
@@ -43,11 +43,6 @@ class TableProcessor
   def delete_student(surname)
     @table.table.each do |student|
       @table.delete student if student[:surname] == surname
-    end
-  end
-
-  def delete_students!(students)
-    students.each do |student|
     end
   end
 

@@ -10,9 +10,10 @@ import javax.swing.JMenu
 import javax.swing.JFileChooser
 import javax.swing.filechooser::FileNameExtensionFilter
 
-require './view/HTMLPanel'
 require './view/dialogs/AddDialog'
 require './view/dialogs/SearchDialog'
+require './view/dialogs/DeleteDialog'
+require './view/HTMLPanel'
 require './view/UIHelper'
 
 class UserInterface

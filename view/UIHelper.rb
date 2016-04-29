@@ -5,7 +5,7 @@ module UIHelper
     searchDialog = SearchDialog.new @frame, @table_processor
 
     createButton = JButton.new "Add New Student"
-    searchButton = JButton.new "Search and Delete"
+    searchButton = JButton.new "Search Students"
 
     createButton.add_action_listener { addDialog.get_add_dialog }
     searchButton.add_action_listener { searchDialog.get_search_dialog }

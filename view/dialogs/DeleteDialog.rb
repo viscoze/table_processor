@@ -10,7 +10,7 @@ import javax.swing.BorderFactory
 
 require './view/dialogs/SearchOption'
 
-class SearchDialog < JDialog
+class DeleteDialog < JDialog
   def initialize(frame, table_processor)
     super frame, "Search", false
     @table_processor = table_processor
@@ -19,7 +19,7 @@ class SearchDialog < JDialog
     initialize_dialog_interface
   end
 
-  def get_search_dialog
+  def get_delete_dialog
     self.set_visible true
     self
   end
@@ -48,4 +48,5 @@ class SearchDialog < JDialog
     mainPanel.add tabbedPane
     self.add mainPanel
   end
+
 end

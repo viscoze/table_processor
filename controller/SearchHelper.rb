@@ -1,4 +1,24 @@
 module SearchHelper
+  def relevant_student?(student, search_conditions)
+    case search_conditions.size
+    when 2
+      return student[:surname] == search_conditions[:surname] &&
+             student[:group] == search_conditions[:group]
+    when 3
+      return student[:surname] == surname && average?(student,min,max)
+    when 4
+      return student[:surname] == surname && student[:marks].keys.include?(subject)
+    end
+  end
+
+  def search_students(surname, group)
+    students = []
+    @table.table.each do |student|
+      students << student if student[:surname] == surname or student[:group] == group
+    end
+    students
+  end
+
   def search_student(surname, group)
     @table.table.each do |student|
       return student if student[:surname] == surname and student[:group] == group
@@ -24,13 +44,5 @@ module SearchHelper
       sum += mark.to_i / marks.size
     end
     (min..max).include? average_mark
-  end
-
-  def search_students(surname, group)
-    students = []
-    @table.table.each do |student|
-      students << student if student[:surname] == surname or student[:group] == group
-    end
-    students
   end
 end
