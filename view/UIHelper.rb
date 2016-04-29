@@ -3,15 +3,19 @@ module UIHelper
     menuPanel    = JPanel.new
     addDialog    = AddDialog.new    @frame, @table_processor
     searchDialog = SearchDialog.new @frame, @table_processor
+    deleteDialog = DeleteDialog.new @frame, @table_processor
 
     createButton = JButton.new "Add New Student"
     searchButton = JButton.new "Search Students"
+    deleteButton = JButton.new "Delete Students"
 
     createButton.add_action_listener { addDialog.get_add_dialog }
     searchButton.add_action_listener { searchDialog.get_search_dialog }
+    deleteButton.add_action_listener { deleteDialog.get_delete_dialog }
 
     menuPanel.add createButton
     menuPanel.add searchButton
+    menuPanel.add deleteButton
 
     menuPanel
   end

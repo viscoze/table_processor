@@ -30,15 +30,18 @@ class SearchOption
 
     seacrhButton = JButton.new "Search ->"
 
+    result = []
+
     seacrhButton.add_action_listener do
       @table_processor.search_panel = tablePanel
       surname = surnameText.getText
       group   = groupText.getText
       @table_processor.render do |table|
-        table.select do |student|
+        result = table.select do |student|
           relevant_student?(student, surname: surname, group: group)
         end
       end
+      error_message mainPanel if result.empty?
     end
 
     enterPanel.add surnameLabel
@@ -69,16 +72,19 @@ class SearchOption
 
     seacrhButton = JButton.new "Search ->"
 
+    result = []
+
     seacrhButton.add_action_listener do |e|
       @table_processor.search_panel = tablePanel
       surname = surnameText.getText
       min     = minText.getText.to_i
       max     = maxText.getText.to_i
       @table_processor.render do |table|
-        table.select do |student|
+        result = table.select do |student|
           relevant_student?(student, surname: surname, min: min, max: max)
         end
       end
+      error_message mainPanel if result.empty?
     end
 
     enterPanel.add surnameLabel
@@ -112,6 +118,8 @@ class SearchOption
 
     seacrhButton = JButton.new "->"
 
+    result = []
+
     seacrhButton.add_action_listener do
       @table_processor.search_panel = tablePanel
       surname = surnameText.getText
@@ -119,11 +127,12 @@ class SearchOption
       min     = minText.getText.to_i
       max     = maxText.getText.to_i
       @table_processor.render do |table|
-        table.select do |student|
+        result = table.select do |student|
           relevant_student?(student, surname: surname, subject: subject,
-                                     min: min, max:max)
+                                    min: min, max:max)
         end
       end
+      error_message mainPanel if result.empty?
     end
 
     enterPanel.add surnameLabel
@@ -140,5 +149,10 @@ class SearchOption
     mainPanel.add pagePanel,  BorderLayout::SOUTH
 
     mainPanel
+  end
+
+  def error_message(panel)
+    JOptionPane.showMessageDialog panel, "Could not find any students!",
+              "Error", JOptionPane::ERROR_MESSAGE
   end
 end

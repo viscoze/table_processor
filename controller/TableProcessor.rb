@@ -55,7 +55,10 @@ class TableProcessor
   end
 
   def delete_current_found_students!
+    number_of_students = @current_found_users.size
     delete_students! @current_found_users
+    @current_found_users = []
+    number_of_students
   end
 
   private
