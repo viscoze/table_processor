@@ -1,10 +1,8 @@
 require './controller/XMLParser'
 require './controller/XMLSerializer'
-require './controller/HTMLHelper'
 require './controller/SearchHelper'
 
 class TableProcessor
-  include HTMLHelper
   include SearchHelper
 
   attr_accessor :panel
@@ -14,11 +12,13 @@ class TableProcessor
 
   def initialize(table)
     @table = table
+    @current_found_users = []
   end
 
   def render(start_index=0, amount_of_students=@table.table.size)
     if block_given?
-      @search_panel.set_table yield @table.table
+      @current_found_users = yield @table.table
+      @search_panel.set_table @current_found_users
       return
     end
     @panel.set_table @table.table.slice(start_index, amount_of_students)
@@ -40,10 +40,22 @@ class TableProcessor
     @table.add(surname, group, subjects_and_marks)
   end
 
-  def delete_student(surname)
+  def delete_student!(surname)
     @table.table.each do |student|
       @table.delete student if student[:surname] == surname
     end
+  end
+
+  def delete_students!(students)
+    students.each do |student_info|
+      @table.table.each do |student|
+        @table.delete student if student == student_info
+      end
+    end
+  end
+
+  def delete_current_found_students!
+    delete_students! @current_found_users
   end
 
   private

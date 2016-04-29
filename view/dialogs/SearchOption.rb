@@ -25,15 +25,13 @@ class SearchOption
     groupLabel   = JLabel.new "Group: "
     tablePanel   = HTMLPanel.new
 
-    @table_processor.search_panel = tablePanel
-
     surnameText  = JTextField.new 10
     groupText    = JTextField.new 10
 
     seacrhButton = JButton.new "Search ->"
-    deleteButton = JButton.new "Delete"
 
-    seacrhButton.add_action_listener do |e|
+    seacrhButton.add_action_listener do
+      @table_processor.search_panel = tablePanel
       surname = surnameText.getText
       group   = groupText.getText
       @table_processor.render do |table|
@@ -52,7 +50,6 @@ class SearchOption
     mainPanel.add enterPanel, BorderLayout::NORTH
     mainPanel.add tablePanel, BorderLayout::CENTER
     mainPanel.add pagePanel,  BorderLayout::SOUTH
-    mainPanel.add deleteButton, BorderLayout::SOUTH
 
     mainPanel
   end
@@ -71,7 +68,6 @@ class SearchOption
     maxText      = JTextField.new 3
 
     seacrhButton = JButton.new "Search ->"
-    deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
       resultLabel.setText ""
@@ -80,15 +76,6 @@ class SearchOption
       max     = maxText.getText.to_i
       student = @table_processor.search_student_by_average_exam_mark surname, min, max
       resultLabel.setText @table_processor.get_student_string student if student
-    end
-
-    deleteButton.add_action_listener do |e|
-      surname = surnameText.getText
-      @table_processor.delete_student surname
-      @table_processor.render
-      resultLabel.setText ""
-      surnameText.setText ""
-      groupText.setText ""
     end
 
     enterPanel.add surnameLabel
@@ -102,7 +89,6 @@ class SearchOption
 
     mainPanel.add enterPanel,   BorderLayout::NORTH
     mainPanel.add resultPanel,  BorderLayout::CENTER
-    mainPanel.add deleteButton, BorderLayout::SOUTH
 
     mainPanel
   end
@@ -123,7 +109,6 @@ class SearchOption
     maxText      = JTextField.new 2
 
     seacrhButton = JButton.new "->"
-    deleteButton = JButton.new "Delete"
 
     seacrhButton.add_action_listener do |e|
       resultLabel.setText ""
@@ -131,15 +116,6 @@ class SearchOption
       subject = subjectText.getText
       student = @table_processor.search_student_by_subject surname, subject
       resultLabel.setText @table_processor.get_student_string student if student
-    end
-
-    deleteButton.add_action_listener do |e|
-      surname = surnameText.getText
-      @table_processor.delete_student surname
-      @table_processor.render
-      resultLabel.setText ""
-      surnameText.setText ""
-      groupText.setText ""
     end
 
     enterPanel.add surnameLabel
@@ -155,7 +131,6 @@ class SearchOption
 
     mainPanel.add enterPanel,   BorderLayout::NORTH
     mainPanel.add resultPanel,  BorderLayout::CENTER
-    mainPanel.add deleteButton, BorderLayout::SOUTH
 
     mainPanel
   end

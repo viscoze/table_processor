@@ -34,6 +34,7 @@ class SearchDialog < JDialog
   end
 
   def initialize_dialog_interface
+    basePanel  = JPanel.new BorderLayout.new 2,1
     mainPanel  = JPanel.new CardLayout.new
     tabbedPane = JTabbedPane.new
     tabsNames  = ["Surname and group","Exam mark","Subject mark"]
@@ -45,7 +46,19 @@ class SearchDialog < JDialog
     mainPanel.set_layout BorderLayout.new
     mainPanel.set_border BorderFactory.createTitledBorder "Choose the task"
 
+    deleteButton = JButton.new "Delete"
+
+    deleteButton.add_action_listener do
+      @table_processor.delete_current_found_students!
+      @table_processor.render
+      @table_processor.search_panel.set_table
+    end
+
+    mainPanel.add deleteButton
     mainPanel.add tabbedPane
-    self.add mainPanel
+
+    basePanel.add mainPanel,     BorderLayout::CENTER
+    basePanel.add deleteButton,  BorderLayout::SOUTH
+    self.add basePanel
   end
 end
