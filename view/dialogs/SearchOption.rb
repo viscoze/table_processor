@@ -11,10 +11,46 @@ class SearchOption
   end
 
   def get_all_search_option
-    [search_first_option, search_second_option, search_third_option]
+    [search_group, search_first_option, search_second_option, search_third_option]
   end
 
   private
+
+  def search_group
+    mainPanel    = JPanel.new BorderLayout.new
+    enterPanel   = JPanel.new
+    tablePanel   = HTMLPanel.new
+    pagePanel    = initialize_paginate_panel tablePanel
+
+    groupLabel   = JLabel.new "Group: "
+
+    groupText    = JTextField.new 10
+
+    seacrhButton = JButton.new "Search ->"
+
+    result = []
+
+    seacrhButton.add_action_listener do
+      @table_processor.search_panel = tablePanel
+      group   = groupText.getText
+      @table_processor.render do |table|
+        result = table.select do |student|
+          relevant_student?(student, group: group)
+        end
+      end
+      error_message mainPanel if result.empty?
+    end
+
+    enterPanel.add groupLabel
+    enterPanel.add groupText
+    enterPanel.add seacrhButton
+
+    mainPanel.add enterPanel, BorderLayout::NORTH
+    mainPanel.add tablePanel, BorderLayout::CENTER
+    mainPanel.add pagePanel,  BorderLayout::SOUTH
+
+    mainPanel
+  end
 
   def search_first_option
     mainPanel    = JPanel.new BorderLayout.new

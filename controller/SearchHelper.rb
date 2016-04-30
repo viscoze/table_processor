@@ -1,6 +1,8 @@
 module SearchHelper
   def relevant_student?(student, search_conditions)
     case search_conditions.size
+    when 1
+      return student[:group] == search_conditions[:group]
     when 2
       return student[:surname] == search_conditions[:surname] &&
              student[:group] == search_conditions[:group]

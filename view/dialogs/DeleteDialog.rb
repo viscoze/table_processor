@@ -38,11 +38,11 @@ class DeleteDialog < JDialog
     basePanel  = JPanel.new BorderLayout.new 2,1
     mainPanel  = JPanel.new CardLayout.new
     tabbedPane = JTabbedPane.new
-    tabsNames  = ["Surname and group","Exam mark","Subject mark"]
+    tabsNames  = ["Group","Surname and group","Exam mark","Subject mark"]
 
     search = SearchOption.new(@table_processor).get_all_search_option
 
-    3.times { |index| tabbedPane.addTab tabsNames[index], search[index] }
+    4.times { |index| tabbedPane.addTab tabsNames[index], search[index] }
 
     mainPanel.set_layout BorderLayout.new
     mainPanel.set_border BorderFactory.createTitledBorder "Choose the task"
