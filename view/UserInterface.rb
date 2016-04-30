@@ -39,9 +39,9 @@ class UserInterface
   def initialize_user_interface
     mainPanel  = JPanel.new BorderLayout.new 3,1
 
-    menuPanel  = initialize_menu_panel
-    pagePanel  = initialize_paginate_panel
     tablePanel = HTMLPanel.new
+    menuPanel  = initialize_menu_panel
+    pagePanel  = initialize_paginate_panel(tablePanel)
 
     @table_processor.panel = tablePanel
     @table_processor.render

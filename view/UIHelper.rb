@@ -20,44 +20,45 @@ module UIHelper
     menuPanel
   end
 
-  def initialize_paginate_panel
-    start_index = 0
-    number_of_student = @table_processor.get_table_size
+  def initialize_paginate_panel(html_panel)
     pagePanel  = JPanel.new
 
     firstButton = JButton.new "First Page"
     lastButton  = JButton.new "Last Page"
-    nextButton  = JButton.new "Next Page >"
-    prevButton  = JButton.new "< Prev Page"
+    nextButton  = JButton.new "->"
+    prevButton  = JButton.new "<-"
 
     paginText   = JTextField.new 4
-    enterButton = JButton.new ">"
+    enterButton = JButton.new "Apply"
+
+    start_index = 0
+    number_of_student = 0
 
     firstButton.add_action_listener do
       start_index = 0
-      @table_processor.render start_index, number_of_student
+      html_panel.render start_index, number_of_student
     end
 
     lastButton.add_action_listener do
-      start_index = @table_processor.get_table_size - number_of_student
-      @table_processor.render start_index, number_of_student
+      start_index = html_panel.get_table_size - number_of_student
+      html_panel.render start_index, number_of_student
     end
 
     nextButton.add_action_listener do
       start_index += number_of_student
-      @table_processor.render start_index, number_of_student
+      html_panel.render start_index, number_of_student
     end
 
     prevButton.add_action_listener do
       start_index -= number_of_student
-      @table_processor.render start_index, number_of_student
+      html_panel.render start_index, number_of_student
     end
 
     enterButton.add_action_listener do
       start_index = 0
       number_of_student = paginText.get_text.to_i
-      @table_processor.render 0, number_of_student
-      paginText.set_text "#{number_of_student}/#{@table_processor.get_table_size}"
+      html_panel.render 0, number_of_student
+      paginText.set_text "#{number_of_student}/#{html_panel.get_table_size}"
     end
 
     pagePanel.add firstButton

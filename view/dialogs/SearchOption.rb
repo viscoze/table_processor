@@ -19,11 +19,11 @@ class SearchOption
   def search_first_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    pagePanel    = initialize_paginate_panel
+    tablePanel   = HTMLPanel.new
+    pagePanel    = initialize_paginate_panel tablePanel
 
     surnameLabel = JLabel.new "Surname: "
     groupLabel   = JLabel.new "Group: "
-    tablePanel   = HTMLPanel.new
 
     surnameText  = JTextField.new 10
     groupText    = JTextField.new 10
@@ -60,11 +60,11 @@ class SearchOption
   def search_second_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    pagePanel    = initialize_paginate_panel
+    tablePanel   = HTMLPanel.new
+    pagePanel    = initialize_paginate_panel tablePanel
 
     surnameLabel = JLabel.new "Surname: "
     markLabel    = JLabel.new "Mark: "
-    tablePanel   = HTMLPanel.new
 
     surnameText  = JTextField.new 10
     minText      = JTextField.new 3
@@ -104,12 +104,12 @@ class SearchOption
   def search_third_option
     mainPanel    = JPanel.new BorderLayout.new
     enterPanel   = JPanel.new
-    pagePanel    = initialize_paginate_panel
+    tablePanel   = HTMLPanel.new
+    pagePanel    = initialize_paginate_panel tablePanel
 
     surnameLabel = JLabel.new "Surname: "
     markLabel    = JLabel.new "Mark: "
     subjectLabel = JLabel.new "Subject: "
-    tablePanel   = HTMLPanel.new
 
     surnameText  = JTextField.new 5
     subjectText  = JTextField.new 5

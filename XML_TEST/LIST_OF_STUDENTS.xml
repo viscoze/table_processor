@@ -339,7 +339,7 @@
 	</subject>
 
 	<subject>
-		<title>MBoIS`</title>
+		<title>MBoIS</title>
 		<mark>10</mark>
 	</subject>
 
@@ -356,6 +356,36 @@
 	<subject>
 		<title>English</title>
 		<mark>10</mark>
+	</subject>
+</exams>
+</student>
+<student>
+	<surname>Robert</surname>
+	<group>421701</group>
+<exams>
+	<subject>
+		<title>APiIS</title>
+		<mark>8</mark>
+	</subject>
+
+	<subject>
+		<title>MBoIS</title>
+		<mark>8</mark>
+	</subject>
+
+	<subject>
+		<title>BoDM</title>
+		<mark>8</mark>
+	</subject>
+
+	<subject>
+		<title>Math</title>
+		<mark>8</mark>
+	</subject>
+
+	<subject>
+		<title>English</title>
+		<mark>8</mark>
 	</subject>
 </exams>
 </student>

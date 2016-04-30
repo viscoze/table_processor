@@ -13,13 +13,20 @@ class HTMLPanel < JPanel
     set_table
   end
 
-  # def render(students_info=nil,start_index=0, amount_of_students=students_info.size)
-  #   @html_label.set_text table(students_info.slice(start_index, amount_of_students))
-  # end
+  def render(start_index=0, number_of_student=@students_info.size)
+    @html_label.set_text table(@students_info.slice(start_index, number_of_student))
+  end
 
   def set_table(students_info=nil)
-    @html_label.set_text table(students_info)
+    @students_info = students_info
+    @html_label.set_text table(@students_info)
   end
+
+  def get_table_size
+    @students_info.size
+  end
+
+  private
 
   def set_amount_of_rows(amount)
     @amount_of_rows = amount

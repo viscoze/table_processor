@@ -15,13 +15,13 @@ class TableProcessor
     @current_found_users = []
   end
 
-  def render(start_index=0, amount_of_students=@table.table.size)
+  def render
     if block_given?
       @current_found_users = yield @table.table
       @search_panel.set_table @current_found_users
       return
     end
-    @panel.set_table @table.table.slice(start_index, amount_of_students)
+    @panel.set_table @table.table
   end
 
   def get_table_size
