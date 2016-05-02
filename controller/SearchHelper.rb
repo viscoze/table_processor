@@ -12,7 +12,8 @@ module SearchHelper
     when 4
       return student[:surname] == search_conditions[:surname] &&
              student[:marks].keys.include?(search_conditions[:subject]) &&
-             average?(student,search_conditions[:min],search_conditions[:max])
+             include_to_range?(student[:marks][search_conditions[:subject]].to_i,
+             search_conditions[:min],search_conditions[:max])
     end
   end
 
@@ -48,6 +49,10 @@ module SearchHelper
     average_mark = marks.inject(0) do |sum, mark|
       sum += mark.to_i / marks.size
     end
-    (min..max).include? average_mark
+    include_to_range?(average_mark, min, max)
+  end
+
+  def include_to_range?(number, min, max)
+    (min..max).include? number
   end
 end
